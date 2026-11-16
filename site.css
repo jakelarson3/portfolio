@@ -1,0 +1,229 @@
+/* Shared styles for inner pages (Work, case studies) */
+:root {
+  --ink: #111114;
+  --muted: #5b5b63;
+  --line: #dcdcd8;
+  --accent: #0b7fb0;
+  --pop: #3cc8ff;
+  --pop-ink: #0b0b0f;
+  --pop-text: #0b7fb0;
+  --pop-soft: #e3f6ff;
+  --cyan: var(--accent);
+  --lavender: #111114;
+  --lavender-soft: #ffffff;
+  --bg: #f7f7f4;
+  --margin: 24px;
+  --radius: 20px;
+}
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Nunito Sans", "Avenir Next", Avenir, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+.poppins, h1, h2, h3, .site-name, .chip, .btn { font-family: "Poppins", system-ui, sans-serif; }
+
+/* Header */
+.site-header {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px var(--margin);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.site-name {
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.site-nav { display: flex; gap: 18px; font-family: "Poppins", system-ui, sans-serif; font-size: 0.95rem; }
+.site-nav a { text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; color: var(--muted); }
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--pop); color: var(--ink); }
+@media (max-width: 560px) {
+  .site-header { flex-wrap: wrap; row-gap: 4px; }
+  .site-nav { width: 100%; gap: 20px; }
+}
+
+main { max-width: 1080px; margin: 0 auto; padding: 8px var(--margin) 72px; }
+
+/* Page intro */
+.page-title {
+  font-weight: 500;
+  font-size: clamp(2.5rem, 11vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+.page-intro { color: var(--muted); max-width: 52ch; margin-top: 12px; }
+
+/* Project grid */
+.grid {
+  list-style: none;
+  padding: 0;
+  margin-top: 36px;
+  display: grid;
+  gap: 36px;
+}
+@media (min-width: 760px) { .grid { grid-template-columns: 1fr 1fr; gap: 48px 40px; } }
+
+.card { text-decoration: none; display: block; }
+.card-media {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--lavender-soft);
+}
+.card-media { border: 1px solid #ebe9f3; }
+.card-media img { width: 100%; height: 100%; object-fit: contain; transition: transform .35s ease; }
+.card:hover .card-media img { transform: scale(1.03); }
+.card:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; border-radius: var(--radius); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.chip--fill { background: var(--pop-soft); border-color: var(--pop-soft); color: var(--ink); }
+.card h2 { font-weight: 500; font-size: 1.5rem; line-height: 1.25; margin-top: 12px; }
+.card p { color: var(--muted); margin-top: 6px; }
+.card .role { color: var(--ink); font-size: 0.95rem; margin-top: 8px; }
+.card .role span { font-family: "Poppins", system-ui, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-right: 6px; }
+.card .more { display: inline-block; margin-top: 10px; font-family: "Poppins", system-ui, sans-serif; font-size: 0.95rem; border-bottom: 1.5px solid var(--accent); color: var(--accent); }
+
+/* Placeholder art (delete once real images exist) */
+.ph {
+  width: 100%; height: 100%;
+  display: grid; place-items: center; text-align: center; padding: 16px;
+  font-family: "Poppins", system-ui, sans-serif; font-size: 0.95rem; color: #6a6480;
+  background: linear-gradient(135deg, var(--lavender-soft), #e3f7ff);
+}
+.ph-note {
+  margin-top: 20px; padding: 12px 16px; border-radius: 14px;
+  background: #fff8db; font-size: 0.95rem;
+}
+
+/* Case study */
+.back { display: inline-block; margin-top: 8px; font-family: "Poppins", system-ui, sans-serif; font-size: 0.95rem; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.cs-header { max-width: 760px; }
+.cs-header .page-title { font-size: clamp(2.2rem, 9vw, 3.75rem); }
+.cs-summary { font-size: 1.2rem; margin-top: 14px; }
+.meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px;
+  margin-top: 28px; padding: 20px; border-radius: var(--radius);
+  background: var(--lavender-soft);
+}
+@media (min-width: 760px) { .meta { grid-template-columns: repeat(4, 1fr); } }
+.meta dt { font-family: "Poppins", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.meta dd { margin: 2px 0 0; }
+.hero { margin-top: 32px; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; }
+.cs-body { max-width: 720px; margin-top: 48px; display: grid; gap: 44px; }
+.cs-body h2 { font-weight: 500; font-size: 1.6rem; line-height: 1.25; margin-bottom: 10px; }
+.cs-body h2 span { color: var(--accent); margin-right: 8px; }
+.cs-body p + p { margin-top: 12px; }
+.figure { margin-top: 18px; }
+.figure .frame { border-radius: 16px; overflow: hidden; aspect-ratio: 16 / 10; }
+.figure figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 8px; }
+.takeaways { padding-left: 1.2em; }
+.takeaways li + li { margin-top: 6px; }
+
+.next {
+  margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 26px; border-radius: 12px; background: var(--pop); color: var(--pop-ink);
+  text-decoration: none; font-family: "Poppins", system-ui, sans-serif; font-size: 1.05rem;
+}
+.next:hover { filter: brightness(0.94); }
+
+@media (prefers-reduced-motion: reduce) { .card-media img { transition: none; } }
+
+/* Case study hero: full slide, never cropped */
+.cs-hero { margin-top: 32px; border-radius: var(--radius); overflow: hidden; border: 1px solid #ebe9f3; }
+.cs-hero img { width: 100%; height: auto; }
+.hero-cap { font-size: 0.9rem; color: var(--muted); margin-top: 8px; }
+.meta dd { overflow-wrap: anywhere; }
+.btn-pdf {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 32px; min-height: 52px; padding: 12px 24px; border-radius: 10px;
+  border: 1.5px solid var(--ink); text-decoration: none;
+  font-family: "Poppins", system-ui, sans-serif; font-size: 1.05rem;
+}
+.btn-pdf span { font-size: 0.8rem; color: var(--muted); }
+.btn-pdf:hover { background: var(--lavender-soft); }
+
+/* About */
+.about { display: grid; gap: 32px; margin-top: 28px; }
+@media (min-width: 760px) { .about { grid-template-columns: 340px 1fr; gap: 56px; align-items: start; } }
+.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
+@media (max-width: 759px) { .about-photo img { aspect-ratio: 1 / 1; } }
+.about-text { max-width: 640px; }
+.about-text p + p { margin-top: 14px; }
+.about-text .lead { font-size: 1.2rem; }
+.about-text h2 { font-weight: 500; font-size: 1.4rem; margin: 32px 0 10px; }
+.facts { padding-left: 1.2em; }
+.facts li + li { margin-top: 6px; }
+
+/* Pill buttons */
+.about-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn-pill {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 28px;
+  border-radius: 10px; border: 1.5px solid var(--ink); text-decoration: none;
+  font-family: "Poppins", system-ui, sans-serif; font-size: 1rem;
+}
+.btn-pill:hover { background: var(--lavender-soft); }
+.btn-pill--fill, .btn-pill--pop { background: var(--pop); border-color: var(--pop); color: var(--pop-ink); }
+.btn-pill--fill:hover, .btn-pill--pop:hover { background: var(--pop); filter: brightness(0.94); }
+
+/* Résumé */
+.resume-preview { display: block; max-width: 800px; margin-top: 28px; border: 1px solid #ebe9f3; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(20, 16, 40, .06); }
+.resume-preview img { width: 100%; height: auto; }
+
+/* Contact */
+.contact-list { list-style: none; padding: 0; margin-top: 32px; display: grid; gap: 14px; max-width: 640px; }
+.contact-list li { padding: 18px 22px; border-radius: var(--radius); background: var(--lavender-soft); display: grid; gap: 2px; }
+.contact-label { font-family: "Poppins", system-ui, sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.contact-link { font-family: "Poppins", system-ui, sans-serif; font-size: 1.15rem; overflow-wrap: anywhere; }
+a.contact-link { text-decoration: none; border-bottom: 1.5px solid var(--accent); color: var(--accent); justify-self: start; }
+.about-text h2.first { margin-top: 0; }
+.facts strong { font-weight: 600; }
+.about-fig { margin: 22px 0 0; max-width: 420px; }
+.about-fig img { width: 100%; height: auto; border-radius: var(--radius); }
+.about-fig figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 8px; }
+@media (min-width: 760px) {
+  .about-photo { position: sticky; top: 24px; }
+  .about-fig { max-width: 340px; }
+}
+
+/* Refinements */
+.site-name { letter-spacing: -0.01em; }
+.page-title { letter-spacing: -0.03em; }
+.card-media, .cs-hero, .resume-preview { border-color: var(--line); }
+.card-media { border-radius: 14px; }
+.card h2 { font-size: 1.35rem; }
+
+/* Cyan offset block behind feature photos */
+.about-photo { position: relative; }
+.about-photo::before {
+  content: ""; position: absolute; inset: 14px -10px -14px 10px;
+  background: var(--pop); border-radius: var(--radius); z-index: -1;
+}
+.about-photo img { position: relative; }
+@media (min-width: 760px) { .about-photo::before { inset: 18px -18px -18px 18px; } }
+.about-fig figcaption::before { content: ""; display: inline-block; width: 14px; height: 2px; background: var(--pop); vertical-align: middle; margin-right: 8px; }
+
+/* Off-white page: white panels get a hairline border */
+.meta, .contact-list li { border: 1px solid var(--line); }
+.btn-pill:not(.btn-pill--fill):not(.btn-pill--pop), .btn-pdf { background: #fff; }
+.btn-pill:not(.btn-pill--fill):not(.btn-pill--pop):hover, .btn-pdf:hover { background: var(--pop-soft); }

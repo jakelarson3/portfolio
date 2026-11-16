@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Jake Larson | Product Development, Apparel &amp; Footwear</title>
+  <meta name="description" content="Jake Larson, aspiring product developer for high-quality apparel and footwear. M.S. Sports Product Management, University of Oregon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Nunito+Sans:opsz,wght@6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    .home-hero {
+      display: grid;
+      gap: 28px;
+      margin-top: 12px;
+      grid-template-areas: "intro" "photo" "body";
+    }
+    .eyebrow {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-intro { grid-area: intro; }
+    .hero-name {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: clamp(3rem, 15vw, 5.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      margin-top: 12px;
+    }
+    .hero-photo { grid-area: photo; }
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: 50% 28%;
+      border-radius: 16px;
+    }
+    .hero-body { grid-area: body; }
+    .hero-tagline { font-size: 1.25rem; line-height: 1.55; }
+    .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+    .hero-actions .btn-pill { white-space: nowrap; padding-left: 12px; padding-right: 12px; }
+    .eyebrow { color: var(--pop-text) !important; font-weight: 500; }
+    .hero-photo { position: relative; }
+    .hero-photo::before {
+      content: ""; position: absolute; inset: 14px -10px -14px 10px;
+      background: var(--pop); border-radius: 16px; z-index: -1;
+    }
+    .hero-photo img { position: relative; }
+
+    @media (min-width: 860px) {
+      .home-hero {
+        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-areas: "intro photo" "body photo";
+        grid-template-rows: auto 1fr;
+        column-gap: 64px;
+        row-gap: 24px;
+        margin-top: 40px;
+        align-items: start;
+      }
+      .hero-photo img { aspect-ratio: 4 / 5; }
+      .hero-actions { grid-template-columns: repeat(2, minmax(0, 220px)); }
+      .hero-photo::before { inset: 20px -20px -20px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="index.html">Jake Larson</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Résumé</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <div class="hero-intro">
+        <p class="eyebrow">Product Development · Apparel &amp; Footwear</p>
+        <h1 class="hero-name">Jake Larson</h1>
+      </div>
+
+      <div class="hero-photo">
+        <picture>
+          <source type="image/webp" srcset="images/jake-600.webp 600w, images/jake-1000.webp 1000w" sizes="(min-width: 860px) 420px, 100vw">
+          <img src="images/jake-600.jpg" srcset="images/jake-600.jpg 600w, images/jake-1000.jpg 1000w" sizes="(min-width: 860px) 420px, 100vw" width="600" height="799" alt="Jake Larson smiling, wearing a tan jacket over a white t-shirt">
+        </picture>
+      </div>
+
+      <div class="hero-body">
+        <p class="hero-tagline">Aspiring to become a developer for high-quality apparel or footwear products that balance performance, innovation, and individual expression.</p>
+        <div class="hero-actions">
+          <a class="btn-pill btn-pill--pop" href="work.html">View my work</a>
+          <a class="btn-pill" href="about.html">More about me</a>
+          <a class="btn-pill" href="resume.html">Résumé</a>
+          <a class="btn-pill" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
